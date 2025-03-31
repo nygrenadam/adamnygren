@@ -1,0 +1,49 @@
+{
+  "name": "Adam Nygren",
+  "tagline": "A brief placeholder sentence describing Adam Nygren and his passion.",
+  "experience": [
+    {
+      "title": "Placeholder Role 1",
+      "company": "Placeholder Company A",
+      "duration": "Jan 2022 - Present",
+      "description": "Brief description of responsibilities and achievements in role 1."
+    },
+    {
+      "title": "Placeholder Role 2",
+      "company": "Placeholder Company B",
+      "duration": "Jun 2020 - Dec 2021",
+      "description": "Brief description of responsibilities and achievements in role 2."
+    }
+  ],
+  "education": [
+    {
+      "degree": "Placeholder Degree 1",
+      "institution": "Placeholder University X",
+      "duration": "Sep 2018 - May 2020"
+    },
+    {
+      "degree": "Placeholder Certificate/Course 2",
+      "institution": "Placeholder Institution Y",
+      "duration": "2019"
+    },
+    {
+      "degree": "Placeholder Degree 3",
+      "institution": "Placeholder College Z",
+      "duration": "Sep 2016 - May 2018"
+    },
+    {
+      "degree": "Placeholder Item 4",
+      "institution": "Placeholder Institution",
+      "duration": "Date Range"
+    },
+    {
+      "degree": "Placeholder Item 5",
+      "institution": "Placeholder Institution",
+      "duration": "Date Range"
+    }
+  ],
+  "contact": {
+    "email": "your.email@example.com",
+    "email_display_text": "Get in Touch"
+  }
+}

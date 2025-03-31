@@ -1,0 +1,182 @@
+/* CSS Variables for easy customization */
+:root {
+    --background-color: #000000; /* Black Background */
+    --text-color: #FFFFFF;       /* White Text */
+    --header-height: 70px;       /* Adjust based on your H1 size/padding */
+    --content-max-width: 960px;
+    --base-font-size: 16px;
+    --spacing-unit: 1.5rem;
+}
+
+/* Basic Reset & Font Setup */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth; /* Enable smooth scrolling */
+    font-size: var(--base-font-size);
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: 'Roboto Flex', sans-serif; /* Use Roboto Flex */
+    line-height: 1.6;
+    padding-top: var(--header-height); /* Prevent content from hiding under fixed header */
+}
+
+/* Header Styling - Fixed at the top */
+#main-header {
+    position: fixed; /* Fix the header */
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--background-color); /* Same background to blend */
+    padding: 1rem var(--spacing-unit);
+    z-index: 1000; /* Keep header above other content */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Subtle separator */
+    height: var(--header-height);
+    display: flex; /* Optional: center content vertically */
+    align-items: center; /* Optional: center content vertically */
+}
+
+#main-header h1 {
+    font-size: 2rem;
+    font-weight: 700; /* Adjust weight as needed */
+    margin: 0 auto; /* Center the name */
+    /* Optional: Customize Roboto Flex axes if needed */
+    /* font-variation-settings: 'wght' 700, 'wdth' 100; */
+}
+
+/* Main Content Area */
+#main-content {
+    max-width: var(--content-max-width);
+    margin: 0 auto; /* Center content block */
+    padding: var(--spacing-unit);
+}
+
+/* Section Styling */
+section {
+    margin-bottom: calc(var(--spacing-unit) * 2);
+    padding-bottom: var(--spacing-unit);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05); /* Subtle separators between sections */
+}
+
+section:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+section h2 {
+    font-size: 1.75rem;
+    margin-bottom: var(--spacing-unit);
+    font-weight: 600;
+    color: var(--text-color); /* Ensure headings inherit color */
+}
+
+/* List Styling (Experience & Education) */
+#experience-list,
+#education-list {
+    list-style: none; /* Remove default bullet points */
+    padding-left: 0; /* Remove default padding */
+}
+
+#experience-list li,
+#education-list li {
+    background-color: rgba(255, 255, 255, 0.03); /* Slightly lighter background for items */
+    padding: calc(var(--spacing-unit) * 0.75);
+    margin-bottom: var(--spacing-unit);
+    border-radius: 4px;
+}
+
+#experience-list li strong,
+#education-list li strong {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+}
+
+#experience-list li span,
+#education-list li span {
+    display: block;
+    font-size: 0.9rem;
+    opacity: 0.8;
+    margin-bottom: 0.5rem;
+}
+
+#experience-list li p,
+#education-list li p {
+    font-size: 0.95rem;
+    opacity: 0.9;
+}
+
+
+/* Link Styling */
+a {
+    color: var(--text-color);
+    text-decoration: none;
+    border-bottom: 1px solid var(--text-color);
+    transition: opacity 0.3s ease;
+}
+
+a:hover, a:focus {
+    opacity: 0.8;
+    border-bottom-style: dashed;
+}
+
+#contact-link {
+    display: inline-block; /* Better styling control */
+    padding: 0.5rem 1rem;
+    background-color: var(--text-color);
+    color: var(--background-color);
+    border: none;
+    border-radius: 4px;
+    font-weight: 600;
+    text-align: center;
+}
+#contact-link:hover, #contact-link:focus {
+    opacity: 0.9;
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+
+/* Responsive Design Adjustments */
+@media (max-width: 768px) {
+    :root {
+        --header-height: 60px;
+        --base-font-size: 15px;
+        --spacing-unit: 1.25rem;
+    }
+
+    #main-header h1 {
+        font-size: 1.5rem;
+    }
+
+    #main-content {
+        padding: var(--spacing-unit) 1rem; /* Add horizontal padding on smaller screens */
+    }
+
+    section h2 {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    :root {
+        --header-height: 50px;
+        --base-font-size: 14px;
+        --spacing-unit: 1rem;
+    }
+
+    #main-header h1 {
+        font-size: 1.3rem;
+        text-align: center; /* Center on very small screens */
+    }
+
+    #main-header {
+        justify-content: center; /* Center the h1 within header */
+    }
+}
