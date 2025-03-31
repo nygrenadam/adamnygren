@@ -8,24 +8,53 @@
     <!-- Google Fonts: Roboto Flex -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Geologica:wght@100..900&family=Monomakh&family=Spline+Sans+Mono:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet">
     <!-- Link to CSS -->
     <link rel="stylesheet" href="style.css">
 
 </head>
 <body>
-<header id="main-header">
-    <h1 data-content="name">Adam Nygren</h1>
+
+<!-- Part 1: Title Area (Scrolls Away) -->
+<header id="page-top-area">
+    <div class="header-content title-content"> <!-- Wrapper for centering title -->
+        <h1 data-content="name">Adam Nygren</h1>
+    </div>
 </header>
+
+<!-- Part 2: Navigation (Sticks) -->
+<nav id="sticky-nav-wrapper">
+    <div class="header-content nav-content"> <!-- Wrapper for centering nav -->
+        <div class="contact-links-nav"> <!-- Actual flex container for links -->
+            <a id="contact-email" class="contact-link"
+               href="mailto:placeholder@example.com"> <!-- JS will fill href and text -->
+                Email Placeholder
+            </a>
+            <a id="contact-linkedin" class="contact-link"
+               href="#" target="_blank" rel="noopener noreferrer">
+                LinkedIn Placeholder
+            </a>
+            <a id="contact-artstation" class="contact-link"
+               href="#" target="_blank" rel="noopener noreferrer">
+                ArtStation Placeholder
+            </a>
+            <a id="contact-music" class="contact-link"
+               href="#" target="_blank" rel="noopener noreferrer">
+                Music Placeholder
+            </a>
+        </div>
+    </div>
+</nav>
 
 <main id="main-content">
     <section id="about">
         <p data-content="tagline">Loading tagline...</p>
+        <!-- Added H2 for consistency -->
+        <!-- <h2>About</h2> -->
     </section>
 
     <section id="experience">
-        <h2>Work Experience</h2>
+        <h2>WORK</h2>
         <ul id="experience-list">
             <!-- Experience items will be loaded here by JS -->
             <li>Loading experience...</li>
@@ -33,19 +62,13 @@
     </section>
 
     <section id="education">
-        <h2>Education</h2>
+        <h2>EDUCATION</h2>
         <ul id="education-list">
             <!-- Education items will be loaded here by JS -->
             <li>Loading education...</li>
         </ul>
     </section>
 
-    <section id="contact">
-        <h2>Contact</h2>
-        <p>
-            <a id="contact-link" href="mailto:placeholder@example.com" data-content-email="email" data-content-text="email_display_text">Contact Me</a>
-        </p>
-    </section>
 </main>
 
 <footer>

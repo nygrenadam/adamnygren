@@ -17,7 +17,7 @@
   ],
   "education": [
     {
-      "degree": "Placeholder Degree 1",
+      "degree": "Spelgrafiker",
       "institution": "Placeholder University X",
       "duration": "Sep 2018 - May 2020"
     },
@@ -42,8 +42,22 @@
       "duration": "Date Range"
     }
   ],
+
+
+
   "contact": {
-    "email": "your.email@example.com",
-    "email_display_text": "Get in Touch"
+
+    "email": "adamnygren10@gmail.com",
+    "email_display_text": "email me",
+
+    "linkedin_url": "https://www.linkedin.com/in/nilserikadamnygren/",
+    "linkedin_text": "LinkedIn",
+
+    "artstation_url": "https://adamnygren.artstation.com/",
+    "artstation_text": "portfolio",
+
+    "music_url": "https://www.nilsadam.com",
+    "music_text": "my music"
+
   }
 }

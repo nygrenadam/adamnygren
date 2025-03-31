@@ -11,7 +11,6 @@ document.addEventListener('DOMContentLoaded', () => {
         })
         .catch(error => {
             console.error('Error fetching or parsing content.json:', error);
-            // Optionally display an error message to the user on the page
             document.body.innerHTML = '<p style="color: red; text-align: center; padding: 2rem;">Error loading portfolio content. Please try again later.</p>';
         });
 });
@@ -42,7 +41,7 @@ function populateContent(content) {
             expList.appendChild(li);
         });
     } else if (expList) {
-        expList.innerHTML = '<li>No experience data found.</li>'; // Handle empty/missing data
+        expList.innerHTML = '<li>No experience data found.</li>';
     }
 
     // Populate Education List
@@ -55,22 +54,87 @@ function populateContent(content) {
                 <strong>${item.degree || ''}</strong>
                 <span>${item.institution || ''} - ${item.duration || ''}</span>
                  ${item.description ? `<p>${item.description}</p>` : ''}
-            `; // Assuming similar structure, adjust if needed
+            `;
             eduList.appendChild(li);
         });
     } else if (eduList) {
-        eduList.innerHTML = '<li>No education data found.</li>'; // Handle empty/missing data
+        eduList.innerHTML = '<li>No education data found.</li>';
     }
 
 
-    // Populate Contact Link
-    const contactLink = document.getElementById('contact-link');
-    if (contactLink && content.contact) {
-        if (content.contact.email) {
-            contactLink.href = `mailto:${content.contact.email}`;
+    // --- Populate Contact Links ---
+    if (content.contact) {
+        const contactData = content.contact;
+
+        // Email Link
+        const emailLink = document.getElementById('contact-email');
+        if (emailLink) {
+            if (contactData.email) {
+                emailLink.href = `mailto:${contactData.email}`;
+            }
+            if (contactData.email_display_text) {
+                emailLink.textContent = contactData.email_display_text;
+            } else {
+                emailLink.style.display = 'none'; // Hide if no text
+            }
         }
-        if (content.contact.email_display_text) {
-            contactLink.textContent = content.contact.email_display_text;
+
+        // LinkedIn Link
+        const linkedinLink = document.getElementById('contact-linkedin');
+        if (linkedinLink) {
+            if (contactData.linkedin_url) {
+                linkedinLink.href = contactData.linkedin_url;
+            } else {
+                linkedinLink.style.display = 'none'; // Hide if no URL
+            }
+            if (contactData.linkedin_text) {
+                linkedinLink.textContent = contactData.linkedin_text;
+            } else {
+                linkedinLink.style.display = 'none'; // Hide if no text
+            }
+            // Hide completely if either URL or text is missing
+            if (!contactData.linkedin_url || !contactData.linkedin_text) {
+                linkedinLink.style.display = 'none';
+            }
+        }
+
+
+        // ArtStation Link
+        const artstationLink = document.getElementById('contact-artstation');
+        if (artstationLink) {
+            if (contactData.artstation_url) {
+                artstationLink.href = contactData.artstation_url;
+            } else {
+                artstationLink.style.display = 'none'; // Hide if no URL
+            }
+            if (contactData.artstation_text) {
+                artstationLink.textContent = contactData.artstation_text;
+            } else {
+                artstationLink.style.display = 'none'; // Hide if no text
+            }
+            // Hide completely if either URL or text is missing
+            if (!contactData.artstation_url || !contactData.artstation_text) {
+                artstationLink.style.display = 'none';
+            }
+        }
+
+        const musicLink = document.getElementById('contact-music');
+        if (musicLink) {
+            if (contactData.music_url) {
+                musicLink.href = contactData.music_url;
+            } else {
+                musicLink.style.display = 'none'; // Hide if no URL
+            }
+            if (contactData.music_text) {
+                musicLink.textContent = contactData.music_text;
+            } else {
+                musicLink.style.display = 'none'; // Hide if no text
+            }
+            // Hide completely if either URL or text is missing
+            if (!contactData.music_url || !contactData.music_text) {
+                musicLink.style.display = 'none';
+            }
         }
     }
+    // --- End Populate Contact Links ---
 }

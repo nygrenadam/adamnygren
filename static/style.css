@@ -1,11 +1,35 @@
 /* CSS Variables for easy customization */
 :root {
-    --background-color: #000000; /* Black Background */
-    --text-color: #FFFFFF;       /* White Text */
-    --header-height: 70px;       /* Adjust based on your H1 size/padding */
+    /* Core Colors */
+    --bg-color: #16161c;         /* Primary Background */
+    --fg-color: #b48c6d;         /* Primary Foreground (Text) */
+
+    /* Component/Accent Colors */
+    --box-bg-color: rgba(255, 255, 255, 0.025); /* Background for Exp/Edu boxes */
+    --header-color: rgba(255, 255, 255, 0.075); /* for h2 heading */
+    --link-underline-color: var(--fg-color);       /* Standard link underline color */
+    --link-underline-hover-color: #6D99B4FF; /* Underline color on hover */
+    --border-color-strong: rgba(255, 255, 255, 0);  /* e.g., Header border */
+    --border-color-subtle: rgba(255, 255, 255, 0);  /* e.g., Section separators */
+
+    /* Layout & Font Variables */
+    /* --- ADJUST BASE FONT SIZE HERE --- */
+    --base-font-size: 24px; /* Try changing this (e.g., 16px, 20px, 30px) */
+
+    /* --- ADJUST OVERALL SPACING HERE --- */
+    --spacing-unit: 1rem; /* Base unit for margins, padding, gaps */
+
     --content-max-width: 960px;
-    --base-font-size: 16px;
-    --spacing-unit: 1.5rem;
+    /* Adjusted Padding Variables */
+    --title-area-padding-vertical: 0.25rem;
+    --title-area-padding-horizontal: var(--spacing-unit); /* Now applied via .header-content */
+    --nav-padding-vertical: 0.75rem; /* Less padding for the sticky nav */
+    --nav-padding-horizontal: var(--spacing-unit); /* Now applied via .header-content */
+    --box-padding: calc(var(--spacing-unit) * 1.5); /* Padding inside Exp/Edu boxes */
+
+    /* Responsive Padding */
+    --title-area-padding-vertical-mobile: 1rem;
+    --nav-padding-vertical-mobile: 0.5rem;
 }
 
 /* Basic Reset & Font Setup */
@@ -16,167 +40,229 @@
 }
 
 html {
-    scroll-behavior: smooth; /* Enable smooth scrolling */
+    scroll-behavior: smooth;
     font-size: var(--base-font-size);
 }
 
 body {
-    background-color: var(--background-color);
-    color: var(--text-color);
-    font-family: 'Roboto Flex', sans-serif; /* Use Roboto Flex */
-    line-height: 1.6;
-    padding-top: var(--header-height); /* Prevent content from hiding under fixed header */
+    background-color: var(--bg-color);
+    color: var(--fg-color);
+    font-family: "Spline Sans Mono", monospace;
+    font-optical-sizing: auto;
+    font-weight: 450;
+
+    font-style: normal;
+    font-kerning: auto;
+    letter-spacing: 0.025rem;
+    line-height: 1.25;
+    /* Body no longer needs flexbox for this layout */
 }
 
-/* Header Styling - Fixed at the top */
-#main-header {
-    position: fixed; /* Fix the header */
+/* Content Centering Wrapper - Used for both title and nav */
+.header-content {
+    width: 100%;
+    max-width: var(--content-max-width);
+    margin-left: auto; /* Center the content */
+    margin-right: auto;
+    text-align: center;
+    letter-spacing: 0.075rem;
+    padding-left: var(--spacing-unit); /* Add side padding here */
+    padding-right: var(--spacing-unit); /* Add side padding here */
+}
+
+/* Styling for the Title Area (Scrolls Away) */
+#page-top-area {
+    padding: var(--title-area-padding-vertical) 0; /* Use 0 horizontal padding on container */
+    padding-top: var(--spacing-unit);
+    background-color: var(--bg-color); /* Match background */
+    /* No position: sticky */
+}
+
+#page-top-area h1 {
+    font-size: 3rem; /* Scales with base-font-size */
+    font-weight: 900;
+    font-kerning: auto;
+    font-stretch: extra-expanded;
+    letter-spacing: 0.01rem;
+    margin: 0; /* Let header-content handle alignment */
+    color: var(--fg-color);
+    /* padding-bottom: 0.5rem; */ /* Removed padding, handled by nav margin/padding */
+}
+
+/* Styling for the Sticky Navigation Wrapper */
+#sticky-nav-wrapper {
+    position: sticky;
     top: 0;
     left: 0;
     width: 100%;
-    background-color: var(--background-color); /* Same background to blend */
-    padding: 1rem var(--spacing-unit);
-    z-index: 1000; /* Keep header above other content */
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Subtle separator */
-    height: var(--header-height);
-    display: flex; /* Optional: center content vertically */
-    align-items: center; /* Optional: center content vertically */
+    z-index: 1000; /* Keep it on top */
+    background-color: var(--bg-color); /* Needs background to cover content */
+    padding: var(--nav-padding-vertical) 0; /* Use 0 horizontal padding on container */
+    border-bottom: 1px solid var(--border-color-strong); /* Optional border */
+    /* Centering the inner .nav-content is handled by .header-content rules */
+    display: flex; /* Needed to make margin auto work correctly */
+    justify-content: center; /* Center .header-content within */
 }
 
-#main-header h1 {
-    font-size: 2rem;
-    font-weight: 700; /* Adjust weight as needed */
-    margin: 0 auto; /* Center the name */
-    /* Optional: Customize Roboto Flex axes if needed */
-    /* font-variation-settings: 'wght' 700, 'wdth' 100; */
+/* Navigation Links Container (inside sticky wrapper) */
+.nav-content {
+    /* Inherits max-width, margin auto etc from .header-content */
+    /* Styles specific to the nav's content wrapper can go here if needed */
+}
+
+/* Navigation Links List */
+.contact-links-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--spacing-unit);
+    width: 100%; /* Ensure it takes width within nav-content */
+}
+
+/* Individual Navigation Links */
+.contact-link {
+    color: var(--fg-color);
+    font-weight: 600;
+    font-size: 0.9rem; /* Scales with base-font-size */
+    text-decoration: none;
+    border-bottom: 0.25rem solid var(--link-underline-color);
+    transition: border-bottom-color 0.3s ease;
+    display: inline-block;
+    background-color: transparent;
+    padding: 1px 0;
+    border-radius: 0;
+    text-align: center;
+    opacity: 1;
+}
+
+.contact-link:hover,
+.contact-link:focus {
+    border-bottom-color: var(--link-underline-hover-color);
+    opacity: 1;
 }
 
 /* Main Content Area */
 #main-content {
     max-width: var(--content-max-width);
-    margin: 0 auto; /* Center content block */
-    padding: var(--spacing-unit);
+    width: 100%; /* Takes available width */
+    margin: 0 auto; /* Centers horizontally */
+    padding: calc(var(--spacing-unit) * 2) var(--spacing-unit); /* Added top/bottom padding */
+    /* min-height: 100vh; */ /* Removed min-height, let content define height */
 }
 
 /* Section Styling */
 section {
-    margin-bottom: calc(var(--spacing-unit) * 2);
-    padding-bottom: var(--spacing-unit);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05); /* Subtle separators between sections */
+    margin-bottom: calc(var(--spacing-unit) * 0.9);
+    padding-bottom: calc(var(--spacing-unit) * 0.5);
+    border-bottom: 1px solid var(--border-color-subtle);
 }
+
+/* Added style for the About <p> tag if you want it centered like headers */
+#about p[data-content="tagline"] {
+    text-align: center;
+    font-size: 1.25rem; /* Example size */
+    font-weight: 350; /* Example weight */
+    letter-spacing: 0.005rem;
+    margin-bottom: calc(var(--spacing-unit) * 0.25); /* Spacing like H2 */
+}
+
 
 section:last-child {
     border-bottom: none;
-    margin-bottom: 0;
+    margin-bottom: 0; /* Remove bottom margin if it's the last thing */
 }
 
 section h2 {
-    font-size: 1.75rem;
+    font-size: 2.5rem; /* Scales with base-font-size */
     margin-bottom: var(--spacing-unit);
-    font-weight: 600;
-    color: var(--text-color); /* Ensure headings inherit color */
+    font-weight: 500;
+    color: var(--header-color);
+    text-align: left;
+    font-style: italic;
+    letter-spacing: 0.1rem;
+    font-kerning: auto;
 }
 
 /* List Styling (Experience & Education) */
 #experience-list,
 #education-list {
-    list-style: none; /* Remove default bullet points */
-    padding-left: 0; /* Remove default padding */
+    list-style: none;
+    padding-left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Keeps boxes shrink-wrapped LTR */
 }
 
 #experience-list li,
 #education-list li {
-    background-color: rgba(255, 255, 255, 0.03); /* Slightly lighter background for items */
-    padding: calc(var(--spacing-unit) * 0.75);
+    background-color: var(--box-bg-color);
+    padding: var(--box-padding); /* Use variable */
     margin-bottom: var(--spacing-unit);
     border-radius: 4px;
+    max-width: 100%;
 }
 
-#experience-list li strong,
-#education-list li strong {
-    display: block;
-    font-weight: 600;
-    margin-bottom: 0.25rem;
+/* Text inside boxes */
+#experience-list li strong, #education-list li strong,
+#experience-list li span, #education-list li span,
+#experience-list li p, #education-list li p {
+    color: var(--fg-color);
 }
 
-#experience-list li span,
-#education-list li span {
-    display: block;
-    font-size: 0.9rem;
-    opacity: 0.8;
-    margin-bottom: 0.5rem;
-}
+#experience-list li strong, #education-list li strong { display: block; font-weight: 600; margin-bottom: 0.25rem; }
+#experience-list li span, #education-list li span { display: block; font-size: 0.9rem; opacity: 0.8; margin-bottom: 0.5rem; }
+#experience-list li p, #education-list li p { font-size: 0.95rem; opacity: 0.9; word-wrap: break-word; overflow-wrap: break-word; }
 
-#experience-list li p,
-#education-list li p {
-    font-size: 0.95rem;
-    opacity: 0.9;
-}
-
-
-/* Link Styling */
-a {
-    color: var(--text-color);
-    text-decoration: none;
-    border-bottom: 1px solid var(--text-color);
-    transition: opacity 0.3s ease;
-}
-
-a:hover, a:focus {
-    opacity: 0.8;
-    border-bottom-style: dashed;
-}
-
-#contact-link {
-    display: inline-block; /* Better styling control */
-    padding: 0.5rem 1rem;
-    background-color: var(--text-color);
-    color: var(--background-color);
-    border: none;
-    border-radius: 4px;
-    font-weight: 600;
-    text-align: center;
-}
-#contact-link:hover, #contact-link:focus {
-    opacity: 0.9;
-    background-color: rgba(255, 255, 255, 0.9);
-}
+/* Links within main content */
+#main-content a { color: var(--fg-color); text-decoration: underline; transition: opacity 0.3s ease, color 0.3s ease; }
+#main-content a:hover, #main-content a:focus { opacity: 0.8; }
 
 
 /* Responsive Design Adjustments */
 @media (max-width: 768px) {
-    :root {
-        --header-height: 60px;
-        --base-font-size: 15px;
-        --spacing-unit: 1.25rem;
+    .header-content {
+        /* Adjust side padding if needed */
+        padding-left: calc(var(--spacing-unit) * 0.8);
+        padding-right: calc(var(--spacing-unit) * 0.8);
     }
 
-    #main-header h1 {
-        font-size: 1.5rem;
+    #page-top-area {
+        padding-top: var(--title-area-padding-vertical-mobile);
+        padding-bottom: var(--title-area-padding-vertical-mobile);
     }
+    #page-top-area h1 { font-size: 2rem; }
+
+    #sticky-nav-wrapper {
+        padding-top: var(--nav-padding-vertical-mobile);
+        padding-bottom: var(--nav-padding-vertical-mobile);
+    }
+    .contact-links-nav { gap: calc(var(--spacing-unit) * 0.8); }
+    .contact-link { font-size: 0.85rem; }
 
     #main-content {
-        padding: var(--spacing-unit) 1rem; /* Add horizontal padding on smaller screens */
+        padding: var(--spacing-unit) 1rem; /* Adjust padding */
     }
-
-    section h2 {
-        font-size: 1.5rem;
+    section h2 { font-size: 1.5rem; }
+    #about p[data-content="tagline"] { font-size: 1.1rem; } /* Adjust tagline size */
+    #experience-list li, #education-list li {
+        padding: calc(var(--box-padding) * 0.9);
     }
 }
 
 @media (max-width: 480px) {
-    :root {
-        --header-height: 50px;
-        --base-font-size: 14px;
-        --spacing-unit: 1rem;
-    }
+    #page-top-area h1 { font-size: 1.3rem; }
 
-    #main-header h1 {
-        font-size: 1.3rem;
-        text-align: center; /* Center on very small screens */
+    .contact-links-nav { gap: calc(var(--spacing-unit) * 0.6); }
+    .contact-link { font-size: 0.8rem; }
+    /* Further padding adjustments if needed */
+    #page-top-area {
+        padding-top: calc(var(--title-area-padding-vertical-mobile) * 0.8);
+        padding-bottom: calc(var(--title-area-padding-vertical-mobile) * 0.8);
     }
+    #sticky-nav-wrapper {
+        padding-top: calc(var(--nav-padding-vertical-mobile) * 0.8);
+        padding-bottom: calc(var(--nav-padding-vertical-mobile) * 0.8);
+    }
+    #about p[data-content="tagline"] { font-size: 1rem; } /* Adjust tagline size */
 
-    #main-header {
-        justify-content: center; /* Center the h1 within header */
-    }
 }
