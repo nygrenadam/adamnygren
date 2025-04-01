@@ -6,7 +6,7 @@
 
     /* Component/Accent Colors */
     --box-bg-color: rgba(255, 255, 255, 0.025); /* Background for Exp/Edu boxes */
-    --header-color: rgba(255, 255, 255, 0.075); /* for h2 heading */
+    --header-color: var(--fg-color); /* for h2 heading */
     --link-underline-color: var(--fg-color);       /* Standard link underline color */
     --link-underline-hover-color: #6D99B4FF; /* Underline color on hover */
     --border-color-strong: rgba(255, 255, 255, 0);  /* e.g., Header border */
@@ -173,14 +173,15 @@ section:last-child {
 }
 
 section h2 {
-    font-size: 2.5rem; /* Scales with base-font-size */
+    font-size: 1.5rem; /* Scales with base-font-size */
     margin-bottom: var(--spacing-unit);
-    font-weight: 500;
+    font-weight: 700;
     color: var(--header-color);
     text-align: left;
-    font-style: italic;
-    letter-spacing: 0.1rem;
+    font-style: normal;
+    letter-spacing: 0.15rem;
     font-kerning: auto;
+    padding-left: calc(var(--spacing-unit) * 2);
 }
 
 /* List Styling (Experience & Education) */

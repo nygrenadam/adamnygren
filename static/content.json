@@ -1,63 +1,61 @@
 {
   "name": "Adam Nygren",
-  "tagline": "A brief placeholder sentence describing Adam Nygren and his passion.",
+  "tagline": "Character Artist, 3D-Generalist",
   "experience": [
     {
-      "title": "Placeholder Role 1",
-      "company": "Placeholder Company A",
-      "duration": "Jan 2022 - Present",
-      "description": "Brief description of responsibilities and achievements in role 1."
+      "title": "Intermediate Character Artist",
+      "company": "Sharkmob",
+      "duration": "2024 (current role)",
+      "description": ""
     },
     {
-      "title": "Placeholder Role 2",
-      "company": "Placeholder Company B",
-      "duration": "Jun 2020 - Dec 2021",
-      "description": "Brief description of responsibilities and achievements in role 2."
+      "title": "Junior Character Artist",
+      "company": "Sharkmob",
+      "duration": "2022-2024",
+      "description": ""
+    },
+    {
+      "title": "Character Artist Intern",
+      "company": "Sharkmob",
+      "duration": "2021-2022",
+      "description": ""
     }
   ],
   "education": [
     {
-      "degree": "Spelgrafiker",
-      "institution": "Placeholder University X",
-      "duration": "Sep 2018 - May 2020"
+      "degree": "Game Art",
+      "institution": "The Game Assembly",
+      "duration": "2019-2022"
     },
     {
-      "degree": "Placeholder Certificate/Course 2",
-      "institution": "Placeholder Institution Y",
-      "duration": "2019"
+      "degree": "Visual Communication",
+      "institution": "Östra Grevie",
+      "duration": "2017-2019"
     },
     {
-      "degree": "Placeholder Degree 3",
-      "institution": "Placeholder College Z",
-      "duration": "Sep 2016 - May 2018"
+      "degree": "Graphic Design",
+      "institution": "Fridhems Folkhögskola",
+      "duration": "2016-2017"
     },
     {
-      "degree": "Placeholder Item 4",
-      "institution": "Placeholder Institution",
-      "duration": "Date Range"
+      "degree": "Introduction to Art",
+      "institution": "Art College Gothenburg",
+      "duration": "2015"
     },
     {
-      "degree": "Placeholder Item 5",
-      "institution": "Placeholder Institution",
-      "duration": "Date Range"
+      "degree": "IT-Design",
+      "institution": "ITG Göteborg",
+      "duration": "2011-2014"
     }
   ],
-
-
-
   "contact": {
-
-    "email": "adamnygren10@gmail.com",
-    "email_display_text": "email me",
-
-    "linkedin_url": "https://www.linkedin.com/in/nilserikadamnygren/",
+    "email": "contact@adamnygren.com",
+    "email_display_text": "Mail",
+    "linkedin_url": "https://linkedin.com/in/nilserikadamnygren/",
     "linkedin_text": "LinkedIn",
-
     "artstation_url": "https://adamnygren.artstation.com/",
-    "artstation_text": "portfolio",
-
+    "artstation_text": "Portfolio",
     "music_url": "https://www.nilsadam.com",
     "music_text": "my music"
-
   }
 }
